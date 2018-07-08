@@ -7,17 +7,17 @@
   
   <title>friendsSystemDesign | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="redis操作：ZADD:ZREM:ZRANGE:ZCARD mysql操作：mysql千万级大数据SQL查询优化 关键字：union关键字：  union/union all join关键字 between和in的区别： mysql语法分析器mysql优化对查询优化，在where和order by涉及的列上建立索引 索引原理：   全文检索：   全文扫描：   聚集索引mysql的编译和运行：">
+  <meta name="description" content="redis操作：ZADD:ZREM:ZRANGE:ZCARD mysql操作：mysql千万级大数据SQL查询优化 关键字：union关键字：  union/union all join关键字 between和in的区别： mysql语法分析器mysql优化对查询优化，在where和order by涉及的列上建立索引 索引原理：   全文检索：   全文扫描：   聚集索引 基于游标的方法 基于集">
 <meta property="og:type" content="article">
 <meta property="og:title" content="friendsSystemDesign">
 <meta property="og:url" content="http://yoursite.com/2018/07/08/friendsSystemDesign/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="redis操作：ZADD:ZREM:ZRANGE:ZCARD mysql操作：mysql千万级大数据SQL查询优化 关键字：union关键字：  union/union all join关键字 between和in的区别： mysql语法分析器mysql优化对查询优化，在where和order by涉及的列上建立索引 索引原理：   全文检索：   全文扫描：   聚集索引mysql的编译和运行：">
+<meta property="og:description" content="redis操作：ZADD:ZREM:ZRANGE:ZCARD mysql操作：mysql千万级大数据SQL查询优化 关键字：union关键字：  union/union all join关键字 between和in的区别： mysql语法分析器mysql优化对查询优化，在where和order by涉及的列上建立索引 索引原理：   全文检索：   全文扫描：   聚集索引 基于游标的方法 基于集">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-08T15:41:47.374Z">
+<meta property="og:updated_time" content="2018-07-08T15:55:00.014Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="friendsSystemDesign">
-<meta name="twitter:description" content="redis操作：ZADD:ZREM:ZRANGE:ZCARD mysql操作：mysql千万级大数据SQL查询优化 关键字：union关键字：  union/union all join关键字 between和in的区别： mysql语法分析器mysql优化对查询优化，在where和order by涉及的列上建立索引 索引原理：   全文检索：   全文扫描：   聚集索引mysql的编译和运行：">
+<meta name="twitter:description" content="redis操作：ZADD:ZREM:ZRANGE:ZCARD mysql操作：mysql千万级大数据SQL查询优化 关键字：union关键字：  union/union all join关键字 between和in的区别： mysql语法分析器mysql优化对查询优化，在where和order by涉及的列上建立索引 索引原理：   全文检索：   全文扫描：   聚集索引 基于游标的方法 基于集">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -95,10 +95,18 @@
 <p><code>索引原理</code>：</p>
 <p>  <code>全文检索</code>：</p>
 <p>  <code>全文扫描</code>：</p>
-<p>  <code>聚集索引</code><br>mysql的编译和运行：</p>
+<p>  <code>聚集索引</code></p>
+<p>基于游标的方法</p>
+<p>基于集的方法</p>
+<p>存储过程</p>
+<p>触发器</p>
+<p>mysql的编译和运行：</p>
 <p>如何建立索引：</p>
 <p>引擎放弃使用索引而进行全表扫描的几个场景：<br>  where查询字段有NULL值时；<br>  where子句中使用!=和&lt;&gt;操作符时；<br>  where子句中使用or来连接条件；—可以换成使用union关键字<br>  where子句中in和not in也要慎用；—查询取值连续的字段时，能用between就不要用in了<br>  where子句中使用like ‘%李%’;—可以考虑全文检索</p>
 <p>  where子句中使用参数；—-因为变量值的解析发生在运行期，而索引选择的输入项是在编译时确定的，这就导致这种场景下引擎会放弃索引；</p>
+<p>  游标的使用；—-什么是游标？基于游标的方法和基于集的方法</p>
+<p>  存储过程和触发器，开始处设置SET NOCOUNT ON，结束时设置SET NOCOUNT OFF，无需在前者每个语句后向客户端发送DONE_IN_PROC消息；</p>
+<p>  尽量避免大事务操作，提供系统并发能力；</p>
 
       
     </div>
